@@ -4,7 +4,7 @@ o robot takes element screenshot from first product
 o robot drills down to product page
 o robot checks that there is something in product page what matches to keyword what was used in search
 3. Can you find link "Lisää koriin" from product page - Allan
-4. Can you find icon related to link "Lisää koriin". Robot takes element screenshot from icon.
+4. Can you find icon related to link "Lisää koriin". Robot takes element screenshot from icon. - Andy
 5. Robot adds product into shopping cart – Tuan
 6. Test6
 7. Test7
