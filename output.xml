@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 6.1.1 (Python 3.11.4 on win32)" generated="20231008 12:10:33.993" rpa="false" schemaversion="4">
+<suite id="s1" name="Jimms" source="c:\Users\35846\Desktop\SoftwareTesting\softwareTestingGroup4\jimms.robot">
+<test id="s1-t1" name=" find link &quot;Lisää koriin&quot; from product page" line="9">
+<kw name="Set Test Documentation" library="BuiltIn">
+<arg>doc</arg>
+<doc>Sets documentation for the current test case.</doc>
+<msg timestamp="20231008 12:10:34.047" level="INFO">Set test documentation to:
+doc</msg>
+<status status="PASS" starttime="20231008 12:10:34.047" endtime="20231008 12:10:34.052"/>
+</kw>
+<doc>doc</doc>
+<status status="PASS" starttime="20231008 12:10:34.045" endtime="20231008 12:10:34.052"/>
+</test>
+<status status="PASS" starttime="20231008 12:10:34.002" endtime="20231008 12:10:34.054"/>
+</suite>
+<statistics>
+<total>
+<stat pass="1" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="1" fail="0" skip="0" id="s1" name="Jimms">Jimms</stat>
+</suite>
+</statistics>
+<errors>
+<msg timestamp="20231008 12:10:34.042" level="WARN">Imported library 'selenium' contains no keywords.</msg>
+</errors>
+</robot>
