@@ -1,5 +1,5 @@
 *** Settings ***
-Library    SeleniumLibrary    
+Library    SeleniumLibrary  
 
 *** Variables ***
 ${BASE URL}  https://www.jimms.fi
