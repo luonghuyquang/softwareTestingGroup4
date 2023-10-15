@@ -1,30 +1,151 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 6.1.1 (Python 3.11.4 on win32)" generated="20231008 12:10:33.993" rpa="false" schemaversion="4">
-<suite id="s1" name="Jimms" source="c:\Users\35846\Desktop\SoftwareTesting\softwareTestingGroup4\jimms.robot">
-<test id="s1-t1" name=" find link &quot;Lisää koriin&quot; from product page" line="9">
-<kw name="Set Test Documentation" library="BuiltIn">
-<arg>doc</arg>
-<doc>Sets documentation for the current test case.</doc>
-<msg timestamp="20231008 12:10:34.047" level="INFO">Set test documentation to:
-doc</msg>
-<status status="PASS" starttime="20231008 12:10:34.047" endtime="20231008 12:10:34.052"/>
+<robot generator="Robot 6.1.1 (Python 3.11.4 on win32)" generated="20231015 12:36:04.782" rpa="false" schemaversion="4">
+<suite id="s1" name="Projex" source="c:\Users\nlsnn\Desktop\project\projex.robot">
+<test id="s1-t1" name="Open Jimms" line="15">
+<kw name="Open Browser" library="SeleniumLibrary">
+<arg>${URL}</arg>
+<arg>chrome</arg>
+<arg>options=add_experimental_option("detach", True)</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<msg timestamp="20231015 12:36:05.108" level="INFO">Opening browser 'chrome' to base url 'http://jimms.fi/'.</msg>
+<msg timestamp="20231015 12:36:05.720" level="WARN">The chromedriver version (117.0.5938.149) detected in PATH at C:\Users\nlsnn\AppData\Local\chromedriver-win64\chromedriver.exe might not be compatible with the detected chrome version (118.0.5993.70); currently, chromedriver 118.0.5993.70 is recommended for chrome 118.*, so it is advised to delete the driver in PATH and retry</msg>
+<status status="PASS" starttime="20231015 12:36:05.106" endtime="20231015 12:36:10.714"/>
 </kw>
-<doc>doc</doc>
-<status status="PASS" starttime="20231008 12:10:34.045" endtime="20231008 12:10:34.052"/>
+<status status="PASS" starttime="20231015 12:36:05.103" endtime="20231015 12:36:10.716"/>
 </test>
-<status status="PASS" starttime="20231008 12:10:34.002" endtime="20231008 12:10:34.054"/>
+<test id="s1-t2" name="Search Feature On Main Page" line="19">
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>id=searchinput</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20231015 12:36:10.732" level="INFO">Clicking element 'id=searchinput'.</msg>
+<status status="PASS" starttime="20231015 12:36:10.727" endtime="20231015 12:36:10.885"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>id=searchinput</arg>
+<arg>${KEYWORD}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20231015 12:36:10.886" level="INFO">Typing text 'ps5' into text field 'id=searchinput'.</msg>
+<status status="PASS" starttime="20231015 12:36:10.886" endtime="20231015 12:36:10.985"/>
+</kw>
+<kw name="Press Key" library="SeleniumLibrary">
+<arg>id=searchinput</arg>
+<arg>\\13</arg>
+<doc>*DEPRECATED in SeleniumLibrary 4.0.* use `Press Keys` instead.</doc>
+<msg timestamp="20231015 12:36:10.985" level="WARN">Keyword 'SeleniumLibrary.Press Key' is deprecated. use `Press Keys` instead.</msg>
+<status status="PASS" starttime="20231015 12:36:10.985" endtime="20231015 12:36:11.090"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>10s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20231015 12:36:21.096" level="INFO">Slept 10 seconds</msg>
+<status status="PASS" starttime="20231015 12:36:11.095" endtime="20231015 12:36:21.096"/>
+</kw>
+<status status="PASS" starttime="20231015 12:36:10.727" endtime="20231015 12:36:21.096"/>
+</test>
+<test id="s1-t3" name="Take ScreenShot of Product Page" line="25">
+<kw name="Capture Page Screenshot" library="SeleniumLibrary">
+<arg>screenshot.png</arg>
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<msg timestamp="20231015 12:36:21.406" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="screenshot.png"&gt;&lt;img src="screenshot.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" starttime="20231015 12:36:21.105" endtime="20231015 12:36:21.406"/>
+</kw>
+<status status="PASS" starttime="20231015 12:36:21.105" endtime="20231015 12:36:21.410"/>
+</test>
+<test id="s1-t4" name="Match keyword" line="28">
+<kw name="Page Should Contain" library="SeleniumLibrary">
+<arg>${KEYWORD}</arg>
+<doc>Verifies that current page contains ``text``.</doc>
+<msg timestamp="20231015 12:36:21.470" level="INFO">Current page contains text 'ps5'.</msg>
+<status status="PASS" starttime="20231015 12:36:21.410" endtime="20231015 12:36:21.470"/>
+</kw>
+<status status="PASS" starttime="20231015 12:36:21.410" endtime="20231015 12:36:21.470"/>
+</test>
+<test id="s1-t5" name="Return Home" line="35">
+<kw name="Click Image" library="SeleniumLibrary">
+<arg>xpath://html/body/header/div/div[2]/div/a/picture/img</arg>
+<doc>Clicks an image identified by ``locator``.</doc>
+<msg timestamp="20231015 12:36:21.480" level="INFO">Clicking image 'xpath://html/body/header/div/div[2]/div/a/picture/img'.</msg>
+<status status="PASS" starttime="20231015 12:36:21.475" endtime="20231015 12:36:22.975"/>
+</kw>
+<status status="PASS" starttime="20231015 12:36:21.475" endtime="20231015 12:36:22.977"/>
+</test>
+<test id="s1-t6" name="Search For Product" line="38">
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>id=searchinput</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20231015 12:36:22.997" level="INFO">Clicking element 'id=searchinput'.</msg>
+<status status="PASS" starttime="20231015 12:36:22.991" endtime="20231015 12:36:23.150"/>
+</kw>
+<kw name="Input Text" library="SeleniumLibrary">
+<arg>id=searchinput</arg>
+<arg>${PRODUCT}</arg>
+<doc>Types the given ``text`` into the text field identified by ``locator``.</doc>
+<msg timestamp="20231015 12:36:23.152" level="INFO">Typing text 'graphics processor' into text field 'id=searchinput'.</msg>
+<status status="PASS" starttime="20231015 12:36:23.152" endtime="20231015 12:36:23.452"/>
+</kw>
+<kw name="Press Key" library="SeleniumLibrary">
+<arg>id=searchinput</arg>
+<arg>\\13</arg>
+<doc>*DEPRECATED in SeleniumLibrary 4.0.* use `Press Keys` instead.</doc>
+<msg timestamp="20231015 12:36:23.452" level="WARN">Keyword 'SeleniumLibrary.Press Key' is deprecated. use `Press Keys` instead.</msg>
+<status status="PASS" starttime="20231015 12:36:23.452" endtime="20231015 12:36:24.741"/>
+</kw>
+<status status="PASS" starttime="20231015 12:36:22.987" endtime="20231015 12:36:24.742"/>
+</test>
+<test id="s1-t7" name="Click on the first search result" line="43">
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>xpath://html/body/main/div[2]/div/div[2]/div[5]/div/div[1]/product-box/div[2]/div[2]/h5/a/span</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20231015 12:36:24.748" level="INFO">Clicking element 'xpath://html/body/main/div[2]/div/div[2]/div[5]/div/div[1]/product-box/div[2]/div[2]/h5/a/span'.</msg>
+<status status="PASS" starttime="20231015 12:36:24.747" endtime="20231015 12:36:26.114"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>10s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20231015 12:36:36.118" level="INFO">Slept 10 seconds</msg>
+<status status="PASS" starttime="20231015 12:36:26.117" endtime="20231015 12:36:36.118"/>
+</kw>
+<status status="PASS" starttime="20231015 12:36:24.745" endtime="20231015 12:36:36.121"/>
+</test>
+<test id="s1-t8" name="Add Product to cart" line="47">
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>xpath://html/body/main/div[1]/div[2]/div/jim-product-cta-box/div/div[3]/div[2]/addto-cart-wrapper/div/a</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20231015 12:36:36.152" level="INFO">Clicking element 'xpath://html/body/main/div[1]/div[2]/div/jim-product-cta-box/div/div[3]/div[2]/addto-cart-wrapper/div/a'.</msg>
+<status status="PASS" starttime="20231015 12:36:36.146" endtime="20231015 12:36:36.340"/>
+</kw>
+<status status="PASS" starttime="20231015 12:36:36.143" endtime="20231015 12:36:36.341"/>
+</test>
+<test id="s1-t9" name="Open Cart and Take ScreenShot" line="50">
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>xpath://html/body/header/div/div[3]/jim-cart-dropdown/div/a</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20231015 12:36:36.346" level="INFO">Clicking element 'xpath://html/body/header/div/div[3]/jim-cart-dropdown/div/a'.</msg>
+<status status="PASS" starttime="20231015 12:36:36.346" endtime="20231015 12:36:37.222"/>
+</kw>
+<kw name="Capture Page Screenshot" library="SeleniumLibrary">
+<arg>screenshot2.png</arg>
+<doc>Takes a screenshot of the current page and embeds it into a log file.</doc>
+<msg timestamp="20231015 12:36:37.496" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="screenshot2.png"&gt;&lt;img src="screenshot2.png" width="800px"&gt;&lt;/a&gt;</msg>
+<status status="PASS" starttime="20231015 12:36:37.222" endtime="20231015 12:36:37.497"/>
+</kw>
+<status status="PASS" starttime="20231015 12:36:36.344" endtime="20231015 12:36:37.505"/>
+</test>
+<status status="PASS" starttime="20231015 12:36:04.794" endtime="20231015 12:36:37.510"/>
 </suite>
 <statistics>
 <total>
-<stat pass="1" fail="0" skip="0">All Tests</stat>
+<stat pass="9" fail="0" skip="0">All Tests</stat>
 </total>
 <tag>
 </tag>
 <suite>
-<stat pass="1" fail="0" skip="0" id="s1" name="Jimms">Jimms</stat>
+<stat pass="9" fail="0" skip="0" id="s1" name="Projex">Projex</stat>
 </suite>
 </statistics>
 <errors>
-<msg timestamp="20231008 12:10:34.042" level="WARN">Imported library 'selenium' contains no keywords.</msg>
+<msg timestamp="20231015 12:36:05.720" level="WARN">The chromedriver version (117.0.5938.149) detected in PATH at C:\Users\nlsnn\AppData\Local\chromedriver-win64\chromedriver.exe might not be compatible with the detected chrome version (118.0.5993.70); currently, chromedriver 118.0.5993.70 is recommended for chrome 118.*, so it is advised to delete the driver in PATH and retry</msg>
+<msg timestamp="20231015 12:36:10.985" level="WARN">Keyword 'SeleniumLibrary.Press Key' is deprecated. use `Press Keys` instead.</msg>
+<msg timestamp="20231015 12:36:23.452" level="WARN">Keyword 'SeleniumLibrary.Press Key' is deprecated. use `Press Keys` instead.</msg>
 </errors>
 </robot>
