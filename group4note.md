@@ -8,6 +8,6 @@ o robot checks that there is something in product page what matches to keyword w
 5. Robot adds product into shopping cart – Tuan  
 6. Test6  
 7. Test7  
-8. Test 8: Adding 2 products to the cart, opening cart, checking that the price is correcttly summed - Andy
+8. Test 4.2: Adding 2 products to the cart, opening cart, checking that the price is correcttly summed - Andy
 9. Test9  
 10. Test10  
