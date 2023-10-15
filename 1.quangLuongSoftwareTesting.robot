@@ -18,7 +18,7 @@ Library     OperatingSystem
 
 *** Variables ***
 # The product to test
-${jimms_url}    https://www.jimms.fi/
+${URL}    https://www.jimms.fi/
 
 
 *** Test Cases ***
@@ -32,7 +32,7 @@ ${jimms_url}    https://www.jimms.fi/
 # Mandatory Test: Check if all Product Category (Tuoteryhmät) items have landing page
 1.1. Mandatory - Quang Check If All Categories Have A Landing Page
 # Open the Browser to the tested URL
-    Open Browser    ${jimms_url}    Chrome
+    Open Browser    ${URL}    Chrome
     ...    Chrome    options=add_experimental_option("detach", True)
     Maximize Browser Window
 
@@ -60,7 +60,7 @@ ${jimms_url}    https://www.jimms.fi/
             # If there is a landing page, click on the link to open it to check it content
         ELSE
             # Go back to home page
-            Go To    ${jimms_url}
+            Go To    ${URL}
             # Click on the link of the Landing Page
             Click Element    ${path_1}
             # The landing page is expected to have at least an image
@@ -74,7 +74,7 @@ ${jimms_url}    https://www.jimms.fi/
 # 1.2. Optional Test: Check if Product Sub Category (level 2) items have Landing Page:
 1.2 Optional - Quang Check If All Sub-Categories Have A Landing Page
 #1.2.1. Open the Browser to the tested URL
-    Open Browser    ${jimms_url}    Chrome
+    Open Browser    ${URL}    Chrome
     ...    Chrome    options=add_experimental_option("detach", True)
     Maximize Browser Window
 
@@ -87,7 +87,7 @@ ${jimms_url}    https://www.jimms.fi/
             IF    ${i}>1    BREAK
         END
         # This is to open for the next level of Sub Category
-        Go To    ${jimms_url}
+        Go To    ${URL}
         Click Element    ${path_1}
 
         # 2nd loop - this is to check for a href="" attribute
@@ -115,7 +115,7 @@ ${jimms_url}    https://www.jimms.fi/
                 # If there is a landing page, click on the link to open it to prepare for the next level
             ELSE
                 # This is to open the Sub-Category link to view the content, also prepare for the next level of Sub-Sub-Category for further testing
-                Go To    ${jimms_url}
+                Go To    ${URL}
                 Click Element    ${path_1}
                 Run Keyword And Ignore Error    Click Element    ${path_2}
                 # The landing page is expected to have at least an image
