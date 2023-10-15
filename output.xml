@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 6.1.1 (Python 3.11.4 on win32)" generated="20231014 19:40:23.573" rpa="false" schemaversion="4">
+<robot generator="Robot 6.1.1 (Python 3.11.4 on win32)" generated="20231015 14:29:26.686" rpa="false" schemaversion="4">
 <suite id="s1" name="Jimms" source="c:\Users\Minh Tuan\Documents\GitHub\softwareTestingGroup4\jimms.robot">
 <test id="s1-t1" name="Open website and Click Link" line="10">
 <kw name="Open Browser" library="SeleniumLibrary">
@@ -7,22 +7,19 @@
 <arg>chrome</arg>
 <arg>options=add_experimental_option("detach", True)</arg>
 <doc>Opens a new browser instance to the optional ``url``.</doc>
-<msg timestamp="20231014 19:40:24.029" level="INFO">Opening browser 'chrome' to base url 'https://www.jimms.fi'.</msg>
-<status status="PASS" starttime="20231014 19:40:24.028" endtime="20231014 19:40:29.360"/>
+<msg timestamp="20231015 14:29:27.250" level="INFO">Opening browser 'chrome' to base url 'https://www.jimms.fi'.</msg>
+<status status="PASS" starttime="20231015 14:29:27.248" endtime="20231015 14:29:32.110"/>
 </kw>
 <kw name="Maximize Browser Window" library="SeleniumLibrary">
 <doc>Maximizes current browser window.</doc>
-<status status="PASS" starttime="20231014 19:40:29.361" endtime="20231014 19:40:29.775"/>
+<status status="PASS" starttime="20231015 14:29:32.111" endtime="20231015 14:29:32.445"/>
 </kw>
 <kw name="Sleep" library="BuiltIn">
 <arg>1</arg>
 <doc>Pauses the test executed for the given time.</doc>
-<msg timestamp="20231014 19:40:30.778" level="INFO">Slept 1 second</msg>
-<status status="PASS" starttime="20231014 19:40:29.776" endtime="20231014 19:40:30.778"/>
+<msg timestamp="20231015 14:29:33.448" level="INFO">Slept 1 second</msg>
+<status status="PASS" starttime="20231015 14:29:32.447" endtime="20231015 14:29:33.448"/>
 </kw>
-<status status="PASS" starttime="20231014 19:40:24.027" endtime="20231014 19:40:30.779"/>
-</test>
-<test id="s1-t2" name="Scroll the target link element into view" line="14">
 <kw name="Run Keyword And Ignore Error" library="BuiltIn">
 <arg>Scroll Element Into View</arg>
 <arg>xpath:/html/body/main/div[4]/section[1]/div/ul</arg>
@@ -30,76 +27,107 @@
 <kw name="Scroll Element Into View" library="SeleniumLibrary">
 <arg>xpath:/html/body/main/div[4]/section[1]/div/ul</arg>
 <doc>Scrolls the element identified by ``locator`` into view.</doc>
-<msg timestamp="20231014 19:40:31.209" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-1.png"&gt;&lt;img src="selenium-screenshot-1.png" width="800px"&gt;&lt;/a&gt;</msg>
-<msg timestamp="20231014 19:40:31.209" level="FAIL">MoveTargetOutOfBoundsException: Message: move target out of bounds
+<msg timestamp="20231015 14:29:33.856" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-6.png"&gt;&lt;img src="selenium-screenshot-6.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg timestamp="20231015 14:29:33.857" level="FAIL">MoveTargetOutOfBoundsException: Message: move target out of bounds
   (Session info: chrome=118.0.5993.71)
 Stacktrace:
-	GetHandleVerifier [0x00007FF73A1D8EF2+54786]
-	(No symbol) [0x00007FF73A145612]
-	(No symbol) [0x00007FF739FFA4FD]
-	(No symbol) [0x00007FF73A07D375]
-	(No symbol) [0x00007FF73A05BE6A]
-	(No symbol) [0x00007FF73A074D02]
-	(No symbol) [0x00007FF73A05BC43]
-	(No symbol) [0x00007FF73A030941]
-	(No symbol) [0x00007FF73A031B84]
-	GetHandleVerifier [0x00007FF73A527F52+3524194]
-	GetHandleVerifier [0x00007FF73A57D800+3874576]
-	GetHandleVerifier [0x00007FF73A575D7F+3843215]
-	GetHandleVerifier [0x00007FF73A275086+694166]
-	(No symbol) [0x00007FF73A150A88]
-	(No symbol) [0x00007FF73A14CA94]
-	(No symbol) [0x00007FF73A14CBC2]
-	(No symbol) [0x00007FF73A13CC83]
+	GetHandleVerifier [0x00007FF7D5D08EF2+54786]
+	(No symbol) [0x00007FF7D5C75612]
+	(No symbol) [0x00007FF7D5B2A4FD]
+	(No symbol) [0x00007FF7D5BAD375]
+	(No symbol) [0x00007FF7D5B8BE6A]
+	(No symbol) [0x00007FF7D5BA4D02]
+	(No symbol) [0x00007FF7D5B8BC43]
+	(No symbol) [0x00007FF7D5B60941]
+	(No symbol) [0x00007FF7D5B61B84]
+	GetHandleVerifier [0x00007FF7D6057F52+3524194]
+	GetHandleVerifier [0x00007FF7D60AD800+3874576]
+	GetHandleVerifier [0x00007FF7D60A5D7F+3843215]
+	GetHandleVerifier [0x00007FF7D5DA5086+694166]
+	(No symbol) [0x00007FF7D5C80A88]
+	(No symbol) [0x00007FF7D5C7CA94]
+	(No symbol) [0x00007FF7D5C7CBC2]
+	(No symbol) [0x00007FF7D5C6CC83]
 	BaseThreadInitThunk [0x00007FFB93C57344+20]
 	RtlUserThreadStart [0x00007FFB94F026B1+33]
 </msg>
-<status status="FAIL" starttime="20231014 19:40:30.783" endtime="20231014 19:40:31.219"/>
+<status status="FAIL" starttime="20231015 14:29:33.449" endtime="20231015 14:29:33.870"/>
 </kw>
-<status status="PASS" starttime="20231014 19:40:30.782" endtime="20231014 19:40:31.220"/>
+<status status="PASS" starttime="20231015 14:29:33.449" endtime="20231015 14:29:33.871"/>
 </kw>
-<status status="PASS" starttime="20231014 19:40:30.781" endtime="20231014 19:40:31.221"/>
-</test>
-<test id="s1-t3" name=" Wait until the target link element is visible" line="16">
 <kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
 <arg>xpath://*[@id="fp-suggestions-carousel1-slide01"]/div/product-box/div[2]/div[3]/addto-cart-wrapper/div/a</arg>
 <doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" starttime="20231014 19:40:31.225" endtime="20231014 19:40:31.292"/>
+<status status="PASS" starttime="20231015 14:29:33.872" endtime="20231015 14:29:33.933"/>
 </kw>
-<status status="PASS" starttime="20231014 19:40:31.223" endtime="20231014 19:40:31.293"/>
+<status status="PASS" starttime="20231015 14:29:27.247" endtime="20231015 14:29:33.937"/>
 </test>
-<test id="s1-t4" name="Click the link" line="21">
+<test id="s1-t2" name="5.1 Add the items into the shopping basket" line="20">
 <kw name="Click Element" library="SeleniumLibrary">
 <arg>xpath://*[@id="fp-suggestions-carousel1-slide01"]/div/product-box/div[2]/div[3]/addto-cart-wrapper/div/a</arg>
 <doc>Click the element identified by ``locator``.</doc>
-<msg timestamp="20231014 19:40:31.298" level="INFO">Clicking element 'xpath://*[@id="fp-suggestions-carousel1-slide01"]/div/product-box/div[2]/div[3]/addto-cart-wrapper/div/a'.</msg>
-<status status="PASS" starttime="20231014 19:40:31.297" endtime="20231014 19:40:31.437"/>
+<msg timestamp="20231015 14:29:33.947" level="INFO">Clicking element 'xpath://*[@id="fp-suggestions-carousel1-slide01"]/div/product-box/div[2]/div[3]/addto-cart-wrapper/div/a'.</msg>
+<status status="PASS" starttime="20231015 14:29:33.945" endtime="20231015 14:29:34.148"/>
 </kw>
-<status status="PASS" starttime="20231014 19:40:31.295" endtime="20231014 19:40:31.438"/>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>xpath:/html/body/main/div[4]/section[1]/div[2]/ul/li[2]/div/product-box/div[2]/div[3]/addto-cart-wrapper/div/a</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20231015 14:29:34.150" level="INFO">Clicking element 'xpath:/html/body/main/div[4]/section[1]/div[2]/ul/li[2]/div/product-box/div[2]/div[3]/addto-cart-wrapper/div/a'.</msg>
+<status status="PASS" starttime="20231015 14:29:34.149" endtime="20231015 14:29:34.270"/>
+</kw>
+<status status="PASS" starttime="20231015 14:29:33.943" endtime="20231015 14:29:34.271"/>
 </test>
-<test id="s1-t5" name="Close Window" line="24">
-<kw name="Sleep" library="BuiltIn">
-<arg>1</arg>
-<doc>Pauses the test executed for the given time.</doc>
-<msg timestamp="20231014 19:40:32.441" level="INFO">Slept 1 second</msg>
-<status status="PASS" starttime="20231014 19:40:31.441" endtime="20231014 19:40:32.442"/>
+<test id="s1-t3" name="5.2 Check the quantity in shopping basket" line="24">
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>xpath:/html/body/header/div/div[3]/jim-cart-dropdown/div/a</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20231015 14:29:34.276" level="INFO">Clicking element 'xpath:/html/body/header/div/div[3]/jim-cart-dropdown/div/a'.</msg>
+<status status="PASS" starttime="20231015 14:29:34.275" endtime="20231015 14:29:35.765"/>
 </kw>
-<kw name="Close All Browsers" library="SeleniumLibrary">
-<doc>Closes all open browsers and resets the browser cache.</doc>
-<status status="PASS" starttime="20231014 19:40:32.444" endtime="20231014 19:40:39.141"/>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${number_show}</var>
+<arg>xpath://*[@id="headercartcontainer"]/a/span/span</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20231015 14:29:35.803" level="INFO">${number_show} = 3</msg>
+<status status="PASS" starttime="20231015 14:29:35.766" endtime="20231015 14:29:35.803"/>
 </kw>
-<status status="PASS" starttime="20231014 19:40:31.440" endtime="20231014 19:40:39.142"/>
+<kw name="Get WebElements" library="SeleniumLibrary">
+<var>${elements}</var>
+<arg>xpath=//*[@id="jim-main"]/div/div/div/div[1]/article</arg>
+<doc>Returns a list of WebElement objects matching the ``locator``.</doc>
+<msg timestamp="20231015 14:29:35.821" level="INFO">${elements} = [&lt;selenium.webdriver.remote.webelement.WebElement (session="50b364887f6b2d08a3220775b2ca109b", element="4365F33AE74A96543FAE375E808E3BF2_element_30")&gt;, &lt;selenium.webdriver.remote.webelement.WebElement...</msg>
+<status status="PASS" starttime="20231015 14:29:35.804" endtime="20231015 14:29:35.821"/>
+</kw>
+<kw name="Get Length" library="BuiltIn">
+<var>${element_count}</var>
+<arg>${elements}</arg>
+<doc>Returns and logs the length of the given item as an integer.</doc>
+<msg timestamp="20231015 14:29:35.823" level="INFO">Length is 2</msg>
+<msg timestamp="20231015 14:29:35.823" level="INFO">${element_count} = 2</msg>
+<status status="PASS" starttime="20231015 14:29:35.822" endtime="20231015 14:29:35.823"/>
+</kw>
+<kw name="Should Be Equal" library="BuiltIn">
+<arg>${element_count}</arg>
+<arg>${number_show}</arg>
+<doc>Fails if the given objects are unequal.</doc>
+<msg timestamp="20231015 14:29:35.824" level="INFO">Argument types are:
+&lt;class 'int'&gt;
+&lt;class 'str'&gt;</msg>
+<msg timestamp="20231015 14:29:35.825" level="FAIL">2 != 3</msg>
+<status status="FAIL" starttime="20231015 14:29:35.824" endtime="20231015 14:29:35.826"/>
+</kw>
+<status status="FAIL" starttime="20231015 14:29:34.274" endtime="20231015 14:29:35.827">2 != 3</status>
 </test>
-<status status="PASS" starttime="20231014 19:40:23.582" endtime="20231014 19:40:39.144"/>
+<status status="FAIL" starttime="20231015 14:29:26.699" endtime="20231015 14:29:35.830"/>
 </suite>
 <statistics>
 <total>
-<stat pass="5" fail="0" skip="0">All Tests</stat>
+<stat pass="2" fail="1" skip="0">All Tests</stat>
 </total>
 <tag>
 </tag>
 <suite>
-<stat pass="5" fail="0" skip="0" id="s1" name="Jimms">Jimms</stat>
+<stat pass="2" fail="1" skip="0" id="s1" name="Jimms">Jimms</stat>
 </suite>
 </statistics>
 <errors>
