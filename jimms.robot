@@ -16,7 +16,7 @@ Test 4.1 Can you find icon related to link "Lisää koriin". Robot takes element
 
 *** Test Cases ***
 Test 4.2 Adding 2 products to the cart, opening cart, checking that the price is correcttly summed - Andrejs Kavalans
-        Open Browser    ${URL}${/}Product/Tietokoneet    chrome
+        Open Browser    https://www.jimms.fi/fi/Product/Tietokoneet    chrome
     ...            chrome     options=add_experimental_option("detach", True)
     Maximize Browser Window
 
