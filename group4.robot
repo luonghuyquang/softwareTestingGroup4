@@ -14,14 +14,17 @@
 *** Settings ***
 Library     SeleniumLibrary
 Library     OperatingSystem
+Library     String
 
 
 *** Variables ***
 # The website to test
 ${URL}          https://www.jimms.fi/
 # For test 2.2 and 2.3
-${KEYWORD_N}      ps5
-${PRODUCT_N}      graphics processor
+${KEYWORD_N}    ps5
+${PRODUCT_N}    graphics processor
+# For 4.1
+${EL_SSHOT}     ${CURDIR}${/}screenshots/LisääKoriin.png
 
 
 *** Test Cases ***
@@ -44,9 +47,9 @@ ${PRODUCT_N}      graphics processor
 # If there is no landing page, append the Category name to quangLuong.txt
 # If there is a landing page, click on the link to open it to prepare for the next level
     FOR    ${i}    IN RANGE    1    32
-        ${path_1}=    Set Variable    //*[@id="sitemegamenu"]/nav/ul/li[${i}]/a
+        ${path_1}    Set Variable    //*[@id="sitemegamenu"]/nav/ul/li[${i}]/a
         # ${path_1}=    Set Variable    /html/body/header/div/div[1]/jim-drilldown-mega-menu/nav/ul/li[${i}]/a
-        ${element}=    Run Keyword And Return Status    Element Should Be Visible    xpath:${path_1}
+        ${element}    Run Keyword And Return Status    Element Should Be Visible    xpath:${path_1}
         IF    not ${element}
             IF    ${i}>1    BREAK
         END
@@ -55,11 +58,11 @@ ${PRODUCT_N}      graphics processor
         # If the Category has a landing page, there must be a href link and enabled to it at this level of the menu
         Run Keyword And Ignore Error    Element Should Be Enabled    xpath:${path_1}
         # Check if the element has a href attribute
-        ${href_attribute}=    Run Keyword And Ignore Error    Get Element Attribute    xpath:${path_1}    href
+        ${href_attribute}    Run Keyword And Ignore Error    Get Element Attribute    xpath:${path_1}    href
         # If there is no landing page, append the Category name to quangLuong.txt
         # This is an alternative to Should Not Be Empty, with the possibility to write the problematic category to file
         IF    ${href_attribute} == ('PASS', None)
-            ${category}=    Get Text    ${path_1}
+            ${category}    Get Text    ${path_1}
             Append To File    ./1quangLuong.txt    Level 1: ${category}\n
             # If there is a landing page, click on the link to open it to check it content
         ELSE
@@ -85,9 +88,9 @@ ${PRODUCT_N}      graphics processor
 
     # 1st loop through the Categories (level 1, similar to Test 1.1 but not testing here)
     FOR    ${i}    IN RANGE    1    15    # Limit to 15 cycles to save time, actually there's only 10 elements to test
-        ${path_1}=    Set Variable    //*[@id="sitemegamenu"]/nav/ul/li[${i}]/a
+        ${path_1}    Set Variable    //*[@id="sitemegamenu"]/nav/ul/li[${i}]/a
         # ${path_1}=    Set Variable    /html/body/header/div/div[1]/jim-drilldown-mega-menu/nav/ul/li[${i}]/a
-        ${element1}=    Run Keyword And Return Status    Element Should Be Visible    xpath:${path_1}
+        ${element1}    Run Keyword And Return Status    Element Should Be Visible    xpath:${path_1}
         IF    not ${element1}
             IF    ${i}>1    BREAK
         END
@@ -101,8 +104,8 @@ ${PRODUCT_N}      graphics processor
         # In the video I limited the run to 2 cycles for time saving
         FOR    ${j}    IN RANGE    1    3
             # ${path_2}=    Set Variable    /html/body/main/div[2]/div/div[1]/filtermenu/div/div[2]/div/div/div[2]/div/ul/li[${j}]/div/div/a
-            ${path_2}=    Set Variable    //*[@id="cListGroup"]/div/ul/li[${j}]/div/div/a
-            ${element2}=    Run Keyword And Return Status    Element Should Be Visible    xpath:${path_2}
+            ${path_2}    Set Variable    //*[@id="cListGroup"]/div/ul/li[${j}]/div/div/a
+            ${element2}    Run Keyword And Return Status    Element Should Be Visible    xpath:${path_2}
             IF    not ${element2}
                 IF    ${j}>1    BREAK
             END
@@ -111,11 +114,11 @@ ${PRODUCT_N}      graphics processor
             # If the Sub-Category has a landing page, there must be a href link and enabled to it at this level of the menu
             Run Keyword And Ignore Error    Element Should Be Enabled    xpath:${path_2}
             # Check if the element has a href attribute
-            ${href_attribute}=    Run Keyword And Ignore Error    Get Element Attribute    xpath:${path_2}    href
+            ${href_attribute}    Run Keyword And Ignore Error    Get Element Attribute    xpath:${path_2}    href
             # If there is no landing page, append the Sub-Category name to quangLuong.txt
             # This is an alternative to Should Not Be Empty, with the possibility to write the problematic category to file
             IF    ${href_attribute} == ('PASS', None)
-                ${sub_category}=    Get Text    ${path_2}
+                ${sub_category}    Get Text    ${path_2}
                 Append To File    ./1quangLuong.txt    Level 2: ${sub_category}\n
                 # If there is a landing page, click on the link to open it to prepare for the next level
             ELSE
@@ -134,6 +137,7 @@ ${PRODUCT_N}      graphics processor
 # NELSON
 
 # 2.1 Nelson test case 1
+
 Open Jimms
     Open Browser    ${URL}    Chrome
     ...    Chrome    options=add_experimental_option("detach", True)
@@ -152,6 +156,7 @@ Match keyword
     Run Keyword And Ignore Error    Page Should Contain    ${KEYWORD_N}
 
 # 2.2. Nelson test case 2
+
 Return Home
     Click Image    xpath://html/body/header/div/div[2]/div/a/picture/img
 
@@ -175,3 +180,52 @@ Open Cart and Take ScreenShot
     Close Browser
 
 # 3. ALLAN
+
+# 4. ANDY
+
+4.1 Can you find icon related to link "Lisää koriin". Robot takes element screenshot from icon. - Andrejs Kavalans
+    Open Browser    ${URL}    chrome
+    ...    chrome    options=add_experimental_option("detach", True)
+    Maximize Browser Window
+
+    Capture Element Screenshot    class:me-1    ${EL_SSHOT}
+    Close Browser
+
+4.2 Adding 2 products to the cart, opening cart, checking that the price is correcttly summed - Andrejs Kavalans
+    Open Browser    ${URL}${/}Product/Tietokoneet    chrome
+    ...    chrome    options=add_experimental_option("detach", True)
+    Maximize Browser Window
+
+    Click Element
+    ...    xpath:/html/body/main/div[2]/div/div[2]/div[4]/div/div[1]/product-box/div[2]/div[3]/addto-cart-wrapper
+    Sleep    1s
+    Click Element
+    ...    xpath:/html/body/main/div[2]/div/div[2]/div[4]/div/div[2]/product-box/div[2]/div[3]/addto-cart-wrapper
+
+    ${price1}    Get Text
+    ...    xpath:/html/body/main/div[2]/div/div[2]/div[4]/div/div[1]/product-box/div[2]/div[3]/div/span/span
+    ${price2}    Get Text
+    ...    xpath://*[@id="jim-main"]/div[2]/div/div[2]/div[4]/div/div[2]/product-box/div[2]/div[3]/div/span/span
+
+    ${price1}    Remove String    ${price1}    €
+    ${price2}    Remove String    ${price2}    €
+    ${price1}    Replace String    ${price1}    ,    .
+    ${price2}    Replace String    ${price2}    ,    .
+    ${price1}    Remove String    ${price1}    ${SPACE}
+    ${price2}    Remove String    ${price2}    ${SPACE}
+    Convert to Number    ${price1}
+    Convert to Number    ${price2}
+    ${priceSUM}    Evaluate    ${price1}+${price2}
+
+    Click Element    xpath:/html/body/header/div/div[3]/jim-cart-dropdown/div/a
+    Wait Until Location Is    ${URL}fi/ShoppingCart
+    ${priceCart}    Get Text    xpath:/html/body/main/div/div/div/div[2]/div/div[1]/ul/li[5]/span
+    ${priceCart}    Remove String    ${priceCart}    €
+    ${priceCart}    Replace String    ${priceCart}    ,    .
+    ${priceCart}    Remove String    ${priceCart}    ${SPACE}
+    Convert to Number    ${priceCart}
+    Should Be Equal As Numbers    ${priceSUM}    ${priceCart}
+
+    Close Browser
+
+# 5. TUAN
