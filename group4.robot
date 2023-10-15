@@ -12,10 +12,10 @@
 
 
 *** Settings ***
-Library    SeleniumLibrary
-Library    OperatingSystem
-Library    String
-Library    Builtin
+Library     SeleniumLibrary
+Library     OperatingSystem
+Library     String
+Library     Builtin
 
 
 *** Variables ***
@@ -26,6 +26,7 @@ ${KEYWORD_N}    ps5
 ${PRODUCT_N}    graphics processor
 # For 4.1
 ${EL_SSHOT}     ${CURDIR}${/}screenshots/LisääKoriin.png
+
 
 
 *** Test Cases ***
@@ -181,9 +182,86 @@ Open Cart and Take ScreenShot
     Close Browser
 
 # 3. ALLAN
+# Can you find link "Lisää koriin" from product page - Allan
 
+Find Item by Title
+    Open Browser    ${URL}    Chrome
+    ...    Chrome    options=add_experimental_option("detach", True)
+    Maximize Browser Window
+    Execute JavaScript    document.querySelector('a[title="Lisää koriin"]').scrollIntoView();
+    Sleep    3
+    Close Browser
 
-# 4 ALLAN
+# 4 ANDY
+*** Test Cases ***
+Test 4.1 Can you find icon related to link "Lisää koriin". Robot takes element screenshot from icon. - Andrejs Kavalans
+    Open Browser    ${URL}    chrome
+    ...            chrome     options=add_experimental_option("detach", True)
+    Maximize Browser Window
+    
+    Capture Element Screenshot    class:me-1    ${EL_SSHOT}
+    SeleniumLibrary.Close Browser
 
+*** Test Cases ***
+Test 4.2 Adding 2 products to the cart, opening cart, checking that the price is correcttly summed - Andrejs Kavalans
+        Open Browser    https://www.jimms.fi/fi/Product/Tietokoneet    chrome
+    ...            chrome     options=add_experimental_option("detach", True)
+    Maximize Browser Window
 
-# 5 Tuan
+    Click Element    xpath:/html/body/main/div[2]/div/div[2]/div[4]/div/div[1]/product-box/div[2]/div[3]/addto-cart-wrapper
+    Sleep    1s
+    Click Element    xpath:/html/body/main/div[2]/div/div[2]/div[4]/div/div[2]/product-box/div[2]/div[3]/addto-cart-wrapper
+
+    ${price1}    Get Text   xpath:/html/body/main/div[2]/div/div[2]/div[4]/div/div[1]/product-box/div[2]/div[3]/div/span/span
+    ${price2}    Get Text   xpath://*[@id="jim-main"]/div[2]/div/div[2]/div[4]/div/div[2]/product-box/div[2]/div[3]/div/span/span
+
+    ${price1}    Remove String    ${price1}    €
+    ${price2}    Remove String    ${price2}    €
+    ${price1}    Replace String    ${price1}    ,    .
+    ${price2}    Replace String    ${price2}    ,    .
+    ${price1}    Remove String    ${price1}    ${SPACE}
+    ${price2}    Remove String    ${price2}    ${SPACE}
+    Convert to Number    ${price1}
+    Convert to Number    ${price2}
+    ${priceSUM}=    Evaluate    ${price1}+${price2}
+
+    Click Element    xpath:/html/body/header/div/div[3]/jim-cart-dropdown/div/a
+    Wait Until Location Is    ${URL}fi/ShoppingCart
+    ${priceCart}    Get Text    xpath:/html/body/main/div/div/div/div[2]/div/div[1]/ul/li[5]/span
+    ${priceCart}    Remove String    ${priceCart}    €
+    ${priceCart}    Replace String    ${priceCart}    ,    .
+    ${priceCart}    Remove String    ${priceCart}    ${SPACE}
+    Convert to Number    ${priceCart}
+    Should Be Equal As Numbers    ${priceSUM}    ${priceCart}
+
+    SeleniumLibrary.Close Browser
+
+# 5 TUAN
+*** Test Cases ***
+5 Add the items into the shopping basket and check 
+    Open Browser    ${URL}    chrome    options=add_experimental_option("detach", True)
+    Maximize Browser Window
+    #Sleep to wait for page reloading
+    # Test 5.1: Add the items into the shopping basket
+    Sleep    1
+    #Ignore the error and scroll
+    Run Keyword And Ignore Error    Scroll Element Into View    xpath:/html/body/main/div[4]/section[1]/div/ul
+    Wait Until Element Is Visible    xpath://*[@id="fp-suggestions-carousel1-slide01"]/div/product-box/div[2]/div[3]/addto-cart-wrapper/div/a
+    # Add item into the basket
+    Click Element    xpath://*[@id="fp-suggestions-carousel1-slide01"]/div/product-box/div[2]/div[3]/addto-cart-wrapper/div/a
+    sleep    2
+    Click Element    xpath=/html/body/main/div[4]/section[1]/div[2]/ul/li[2]/div/product-box/div[2]/div[3]/addto-cart-wrapper/div/a
+    sleep    2
+    
+
+    # Test 5.2: Check and compare number of items in cart and number show on the icon
+    Click Element    xpath=/html/body/header/div/div[3]/jim-cart-dropdown/div/a
+    # Take number display on the shopping cart
+    ${number_show}    Get Text    xpath://*[@id="headercartcontainer"]/a/span/span
+    # Count item in the cart
+    ${elements}    Get Webelements    xpath=//*[@id="jim-main"]/div/div/div/div[1]/article
+    ${element_count}    Get Length    ${elements}    
+    # Compare
+    Should Be Equal     ${element_count}    ${number_show}
+    Sleep    2
+    Close Browser
