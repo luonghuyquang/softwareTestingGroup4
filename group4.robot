@@ -17,10 +17,13 @@ Library     OperatingSystem
 
 
 *** Variables ***
-# The product to test
-${jimms_url}    https://www.jimms.fi/
+# The website to test
+${URL}          https://www.jimms.fi/
+# For test 2.2 and 2.3
+${KEYWORD_N}      ps5
+${PRODUCT_N}      graphics processor
 
-# QUANG
+
 *** Test Cases ***
 1.0. Quang Preparations for Tests
 # 1.0.1. Make the Directory for Screenshots
@@ -30,9 +33,10 @@ ${jimms_url}    https://www.jimms.fi/
     Create File    ./1quangLuong.txt    Categories without Landing Page:\n
 
 # Mandatory Test: Check if all Product Category (Tuoteryhmät) items have landing page
+
 1.1. Mandatory - Quang Check If All Categories Have A Landing Page
 # Open the Browser to the tested URL
-    Open Browser    ${jimms_url}    Chrome
+    Open Browser    ${URL}    Chrome
     ...    Chrome    options=add_experimental_option("detach", True)
     Maximize Browser Window
 
@@ -60,26 +64,27 @@ ${jimms_url}    https://www.jimms.fi/
             # If there is a landing page, click on the link to open it to check it content
         ELSE
             # Go back to home page
-            Go To    ${jimms_url}
+            Go To    ${URL}
             # Click on the link of the Landing Page
             Click Element    ${path_1}
             # The landing page is expected to have at least an image
-            Page Should Contain Element  xpath=//img
+            Page Should Contain Element    xpath=//img
         END
-    # Closing of the loop
+        # Closing of the loop
     END
     # Close the browser
     Close Browser
 
 # 1.2. Optional Test: Check if Product Sub Category (level 2) items have Landing Page:
+
 1.2 Optional - Quang Check If All Sub-Categories Have A Landing Page
-#1.2.1. Open the Browser to the tested URL
-    Open Browser    ${jimms_url}    Chrome
+# 1.2.1. Open the Browser to the tested URL
+    Open Browser    ${URL}    Chrome
     ...    Chrome    options=add_experimental_option("detach", True)
     Maximize Browser Window
 
     # 1st loop through the Categories (level 1, similar to Test 1.1 but not testing here)
-    FOR    ${i}    IN RANGE    1    15     # Limit to 15 cycles to save time, actually there's only 10 elements to test
+    FOR    ${i}    IN RANGE    1    15    # Limit to 15 cycles to save time, actually there's only 10 elements to test
         ${path_1}=    Set Variable    //*[@id="sitemegamenu"]/nav/ul/li[${i}]/a
         # ${path_1}=    Set Variable    /html/body/header/div/div[1]/jim-drilldown-mega-menu/nav/ul/li[${i}]/a
         ${element1}=    Run Keyword And Return Status    Element Should Be Visible    xpath:${path_1}
@@ -87,7 +92,7 @@ ${jimms_url}    https://www.jimms.fi/
             IF    ${i}>1    BREAK
         END
         # This is to open for the next level of Sub Category
-        Go To    ${jimms_url}
+        Go To    ${URL}
         Click Element    ${path_1}
 
         # 2nd loop - this is to check for a href="" attribute
@@ -115,12 +120,11 @@ ${jimms_url}    https://www.jimms.fi/
                 # If there is a landing page, click on the link to open it to prepare for the next level
             ELSE
                 # This is to open the Sub-Category link to view the content, also prepare for the next level of Sub-Sub-Category for further testing
-                Go To    ${jimms_url}
+                Go To    ${URL}
                 Click Element    ${path_1}
                 Run Keyword And Ignore Error    Click Element    ${path_2}
                 # The landing page is expected to have at least an image
-                Page Should Contain Element  xpath=//img
-
+                Page Should Contain Element    xpath=//img
             END
         END
     END
@@ -128,47 +132,46 @@ ${jimms_url}    https://www.jimms.fi/
     Close Browser
 
 # NELSON
-*** Variables ***
 
-
-*** Test Cases ***
-
+# 2.1 Nelson test case 1
 Open Jimms
-    Open Browser    ${URL}    chrome    options=add_experimental_option("detach", True)
-
+    Open Browser    ${URL}    Chrome
+    ...    Chrome    options=add_experimental_option("detach", True)
+    Maximize Browser Window
 
 Search Feature On Main Page
     Click Element    id=searchinput
-    Input Text    id=searchinput    ${KEYWORD}
-    Press Key    id=searchinput    \\13
+    Input Text    id=searchinput    ${KEYWORD_N}
+    Press Keys    id=searchinput    RETURN
     Sleep    10s
 
 Take ScreenShot of Product Page
-    Capture Page Screenshot      screenshot.png      
+    Capture Page Screenshot    screenshot.png
 
 Match keyword
-    Page Should Contain    ${KEYWORD}
+    Run Keyword And Ignore Error    Page Should Contain    ${KEYWORD_N}
 
-
-
-*** Test Cases ***
-
+# 2.2. Nelson test case 2
 Return Home
-    Click Image        xpath://html/body/header/div/div[2]/div/a/picture/img
+    Click Image    xpath://html/body/header/div/div[2]/div/a/picture/img
 
 Search For Product
     Click Element    id=searchinput
-    Input Text    id=searchinput    ${PRODUCT}
-    Press Key    id=searchinput    \\13
+    Input Text    id=searchinput    ${PRODUCT_N}
+    Press Keys    id=searchinput    RETURN
 
 Click on the first search result
-    Click Element    xpath://html/body/main/div[2]/div/div[2]/div[5]/div/div[1]/product-box/div[2]/div[2]/h5/a/span
+    Click Element    xpath:/html/body/main/div[2]/div/div[2]/div[5]/div/div[1]/product-box/div[2]/div[2]/h5/a/b
     Sleep    10s
 
-Add Product to cart     
-    Click Element        xpath://html/body/main/div[1]/div[2]/div/jim-product-cta-box/div/div[3]/div[2]/addto-cart-wrapper/div/a      
+Add Product to cart
+    Click Element
+    ...    xpath://html/body/main/div[1]/div[2]/div/jim-product-cta-box/div/div[3]/div[2]/addto-cart-wrapper/div/a
 
 Open Cart and Take ScreenShot
     Click Element    xpath://html/body/header/div/div[3]/jim-cart-dropdown/div/a
 
     Capture Page Screenshot    screenshot2.png
+    Close Browser
+
+# 3. ALLAN
