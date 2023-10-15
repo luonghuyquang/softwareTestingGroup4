@@ -1,222 +1,120 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 6.1.1 (Python 3.11.4 on win32)" generated="20231015 15:32:54.820" rpa="false" schemaversion="4">
+<robot generator="Robot 6.1.1 (Python 3.11.4 on win32)" generated="20231015 17:29:27.450" rpa="false" schemaversion="4">
 <suite id="s1" name="Group4" source="d:\gitHubq\2023_Software_testing\softwareTestingGroup4\group4.robot">
-<test id="s1-t1" name="4.2 Adding 2 products to the cart, opening cart, checking that the price is correcttly summed - Andrejs Kavalans" line="194">
+<test id="s1-t1" name="Test Adding Items to Cart" line="192">
 <kw name="Open Browser" library="SeleniumLibrary">
-<arg>${URL}${/}Product/Tietokoneet</arg>
-<arg>chrome</arg>
-<arg>chrome</arg>
+<arg>${URL}</arg>
+<arg>Chrome</arg>
 <arg>options=add_experimental_option("detach", True)</arg>
 <doc>Opens a new browser instance to the optional ``url``.</doc>
-<msg timestamp="20231015 15:32:54.994" level="INFO">Opening browser 'chrome' to base url 'https://www.jimms.fi/\Product/Tietokoneet'.</msg>
-<status status="PASS" starttime="20231015 15:32:54.993" endtime="20231015 15:32:58.808"/>
+<msg timestamp="20231015 17:29:27.624" level="INFO">Opening browser 'Chrome' to base url 'https://www.jimms.fi/'.</msg>
+<status status="PASS" starttime="20231015 17:29:27.623" endtime="20231015 17:29:31.000"/>
 </kw>
 <kw name="Maximize Browser Window" library="SeleniumLibrary">
 <doc>Maximizes current browser window.</doc>
-<status status="PASS" starttime="20231015 15:32:58.809" endtime="20231015 15:32:58.934"/>
-</kw>
-<kw name="Click Element" library="SeleniumLibrary">
-<arg>xpath:/html/body/main/div[2]/div/div[2]/div[4]/div/div[1]/product-box/div[2]/div[3]/addto-cart-wrapper</arg>
-<doc>Click the element identified by ``locator``.</doc>
-<msg timestamp="20231015 15:32:58.935" level="INFO">Clicking element 'xpath:/html/body/main/div[2]/div/div[2]/div[4]/div/div[1]/product-box/div[2]/div[3]/addto-cart-wrapper'.</msg>
-<msg timestamp="20231015 15:33:00.374" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-2.png"&gt;&lt;img src="selenium-screenshot-2.png" width="800px"&gt;&lt;/a&gt;</msg>
-<msg timestamp="20231015 15:33:00.374" level="FAIL">ElementClickInterceptedException: Message: element click intercepted: Element is not clickable at point (535, 735)
-  (Session info: chrome=118.0.5993.71)
-Stacktrace:
-	GetHandleVerifier [0x00007FF6B36B8EF2+54786]
-	(No symbol) [0x00007FF6B3625612]
-	(No symbol) [0x00007FF6B34DA64B]
-	(No symbol) [0x00007FF6B3521A6B]
-	(No symbol) [0x00007FF6B351FE39]
-	(No symbol) [0x00007FF6B351DC08]
-	(No symbol) [0x00007FF6B351CCC3]
-	(No symbol) [0x00007FF6B35129CF]
-	(No symbol) [0x00007FF6B353BE6A]
-	(No symbol) [0x00007FF6B35122E6]
-	(No symbol) [0x00007FF6B353C080]
-	(No symbol) [0x00007FF6B3554D02]
-	(No symbol) [0x00007FF6B353BC43]
-	(No symbol) [0x00007FF6B3510941]
-	(No symbol) [0x00007FF6B3511B84]
-	GetHandleVerifier [0x00007FF6B3A07F52+3524194]
-	GetHandleVerifier [0x00007FF6B3A5D800+3874576]
-	GetHandleVerifier [0x00007FF6B3A55D7F+3843215]
-	GetHandleVerifier [0x00007FF6B3755086+694166]
-	(No symbol) [0x00007FF6B3630A88]
-	(No symbol) [0x00007FF6B362CA94]
-	(No symbol) [0x00007FF6B362CBC2]
-	(No symbol) [0x00007FF6B361CC83]
-	BaseThreadInitThunk [0x00007FFF7379257D+29]
-	RtlUserThreadStart [0x00007FFF754AAA78+40]
-</msg>
-<status status="FAIL" starttime="20231015 15:32:58.934" endtime="20231015 15:33:00.376"/>
+<status status="PASS" starttime="20231015 17:29:31.001" endtime="20231015 17:29:31.190"/>
 </kw>
 <kw name="Sleep" library="BuiltIn">
-<arg>1s</arg>
+<arg>2</arg>
 <doc>Pauses the test executed for the given time.</doc>
-<status status="NOT RUN" starttime="20231015 15:33:00.377" endtime="20231015 15:33:00.377"/>
+<msg timestamp="20231015 17:29:33.191" level="INFO">Slept 2 seconds</msg>
+<status status="PASS" starttime="20231015 17:29:31.190" endtime="20231015 17:29:33.191"/>
 </kw>
-<kw name="Click Element" library="SeleniumLibrary">
-<arg>xpath:/html/body/main/div[2]/div/div[2]/div[4]/div/div[2]/product-box/div[2]/div[3]/addto-cart-wrapper</arg>
-<doc>Click the element identified by ``locator``.</doc>
-<status status="NOT RUN" starttime="20231015 15:33:00.377" endtime="20231015 15:33:00.378"/>
-</kw>
-<kw name="Get Text" library="SeleniumLibrary">
-<var>${price1}</var>
-<arg>xpath:/html/body/main/div[2]/div/div[2]/div[4]/div/div[1]/product-box/div[2]/div[3]/div/span/span</arg>
-<doc>Returns the text value of the element identified by ``locator``.</doc>
-<status status="NOT RUN" starttime="20231015 15:33:00.378" endtime="20231015 15:33:00.378"/>
-</kw>
-<kw name="Get Text" library="SeleniumLibrary">
-<var>${price2}</var>
-<arg>xpath://*[@id="jim-main"]/div[2]/div/div[2]/div[4]/div/div[2]/product-box/div[2]/div[3]/div/span/span</arg>
-<doc>Returns the text value of the element identified by ``locator``.</doc>
-<status status="NOT RUN" starttime="20231015 15:33:00.378" endtime="20231015 15:33:00.378"/>
-</kw>
-<kw name="Remove String" library="String">
-<var>${price1}</var>
-<arg>${price1}</arg>
-<arg>€</arg>
-<doc>Removes all ``removables`` from the given ``string``.</doc>
-<status status="NOT RUN" starttime="20231015 15:33:00.379" endtime="20231015 15:33:00.379"/>
-</kw>
-<kw name="Remove String" library="String">
-<var>${price2}</var>
-<arg>${price2}</arg>
-<arg>€</arg>
-<doc>Removes all ``removables`` from the given ``string``.</doc>
-<status status="NOT RUN" starttime="20231015 15:33:00.380" endtime="20231015 15:33:00.380"/>
-</kw>
-<kw name="Replace String" library="String">
-<var>${price1}</var>
-<arg>${price1}</arg>
-<arg>,</arg>
-<arg>.</arg>
-<doc>Replaces ``search_for`` in the given ``string`` with ``replace_with``.</doc>
-<status status="NOT RUN" starttime="20231015 15:33:00.380" endtime="20231015 15:33:00.380"/>
-</kw>
-<kw name="Replace String" library="String">
-<var>${price2}</var>
-<arg>${price2}</arg>
-<arg>,</arg>
-<arg>.</arg>
-<doc>Replaces ``search_for`` in the given ``string`` with ``replace_with``.</doc>
-<status status="NOT RUN" starttime="20231015 15:33:00.380" endtime="20231015 15:33:00.381"/>
-</kw>
-<kw name="Remove String" library="String">
-<var>${price1}</var>
-<arg>${price1}</arg>
-<arg>${SPACE}</arg>
-<doc>Removes all ``removables`` from the given ``string``.</doc>
-<status status="NOT RUN" starttime="20231015 15:33:00.381" endtime="20231015 15:33:00.381"/>
-</kw>
-<kw name="Remove String" library="String">
-<var>${price2}</var>
-<arg>${price2}</arg>
-<arg>${SPACE}</arg>
-<doc>Removes all ``removables`` from the given ``string``.</doc>
-<status status="NOT RUN" starttime="20231015 15:33:00.381" endtime="20231015 15:33:00.381"/>
-</kw>
-<kw name="Convert To Number" library="BuiltIn">
-<arg>${price1}</arg>
-<doc>Converts the given item to a floating point number.</doc>
-<status status="NOT RUN" starttime="20231015 15:33:00.382" endtime="20231015 15:33:00.382"/>
-</kw>
-<kw name="Convert To Number" library="BuiltIn">
-<arg>${price2}</arg>
-<doc>Converts the given item to a floating point number.</doc>
-<status status="NOT RUN" starttime="20231015 15:33:00.382" endtime="20231015 15:33:00.382"/>
-</kw>
-<kw name="Evaluate" library="BuiltIn">
-<var>${priceSUM}</var>
-<arg>${price1}+${price2}</arg>
-<doc>Evaluates the given expression in Python and returns the result.</doc>
-<status status="NOT RUN" starttime="20231015 15:33:00.383" endtime="20231015 15:33:00.383"/>
-</kw>
-<kw name="Click Element" library="SeleniumLibrary">
-<arg>xpath:/html/body/header/div/div[3]/jim-cart-dropdown/div/a</arg>
-<doc>Click the element identified by ``locator``.</doc>
-<status status="NOT RUN" starttime="20231015 15:33:00.383" endtime="20231015 15:33:00.383"/>
-</kw>
-<kw name="Wait Until Location Is" library="SeleniumLibrary">
-<arg>${URL}fi/ShoppingCart</arg>
-<doc>Waits until the current URL is ``expected``.</doc>
-<status status="NOT RUN" starttime="20231015 15:33:00.383" endtime="20231015 15:33:00.383"/>
-</kw>
-<kw name="Get Text" library="SeleniumLibrary">
-<var>${priceCart}</var>
-<arg>xpath:/html/body/main/div/div/div/div[2]/div/div[1]/ul/li[5]/span</arg>
-<doc>Returns the text value of the element identified by ``locator``.</doc>
-<status status="NOT RUN" starttime="20231015 15:33:00.384" endtime="20231015 15:33:00.384"/>
-</kw>
-<kw name="Remove String" library="String">
-<var>${priceCart}</var>
-<arg>${priceCart}</arg>
-<arg>€</arg>
-<doc>Removes all ``removables`` from the given ``string``.</doc>
-<status status="NOT RUN" starttime="20231015 15:33:00.384" endtime="20231015 15:33:00.384"/>
-</kw>
-<kw name="Replace String" library="String">
-<var>${priceCart}</var>
-<arg>${priceCart}</arg>
-<arg>,</arg>
-<arg>.</arg>
-<doc>Replaces ``search_for`` in the given ``string`` with ``replace_with``.</doc>
-<status status="NOT RUN" starttime="20231015 15:33:00.384" endtime="20231015 15:33:00.384"/>
-</kw>
-<kw name="Remove String" library="String">
-<var>${priceCart}</var>
-<arg>${priceCart}</arg>
-<arg>${SPACE}</arg>
-<doc>Removes all ``removables`` from the given ``string``.</doc>
-<status status="NOT RUN" starttime="20231015 15:33:00.385" endtime="20231015 15:33:00.385"/>
-</kw>
-<kw name="Convert To Number" library="BuiltIn">
-<arg>${priceCart}</arg>
-<doc>Converts the given item to a floating point number.</doc>
-<status status="NOT RUN" starttime="20231015 15:33:00.385" endtime="20231015 15:33:00.385"/>
-</kw>
-<kw name="Should Be Equal As Numbers" library="BuiltIn">
-<arg>${priceSUM}</arg>
-<arg>${priceCart}</arg>
-<doc>Fails if objects are unequal after converting them to real numbers.</doc>
-<status status="NOT RUN" starttime="20231015 15:33:00.385" endtime="20231015 15:33:00.386"/>
-</kw>
-<kw name="Close Browser" library="SeleniumLibrary">
-<doc>Closes the current browser.</doc>
-<status status="NOT RUN" starttime="20231015 15:33:00.386" endtime="20231015 15:33:00.386"/>
-</kw>
-<status status="FAIL" starttime="20231015 15:32:54.992" endtime="20231015 15:33:00.387">ElementClickInterceptedException: Message: element click intercepted: Element is not clickable at point (535, 735)
+<kw name="Execute Javascript" library="SeleniumLibrary">
+<arg>arguments[0].scrollIntoView(true);</arg>
+<arg>xpath=//*[@id="fp-suggestions-carousel1-slide01"]/div/product-box/div[2]/div[3]/addto-cart-wrapper/div/a</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<msg timestamp="20231015 17:29:33.192" level="INFO">Executing JavaScript:
+arguments[0].scrollIntoView(true);xpath=//*[@id="fp-suggestions-carousel1-slide01"]/div/product-box/div[2]/div[3]/addto-cart-wrapper/div/a
+Without any arguments.</msg>
+<msg timestamp="20231015 17:29:33.437" level="INFO" html="true">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="selenium-screenshot-38.png"&gt;&lt;img src="selenium-screenshot-38.png" width="800px"&gt;&lt;/a&gt;</msg>
+<msg timestamp="20231015 17:29:33.437" level="FAIL">JavascriptException: Message: javascript error: Unexpected token '}'
   (Session info: chrome=118.0.5993.71)
 Stacktrace:
-	GetHandleVerifier [0x00007FF6B36B8EF2+54786]
-	(No symbol) [0x00007FF6B3625612]
-	(No symbol) [0x00007FF6B34DA64B]
-	(No symbol) [0x00007FF6B3521A6B]
-	(No symbol) [0x00007FF6B351FE39]
-	(No symbol) [0x00007FF6B351DC08]
-	(No symbol) [0x00007FF6B351CCC3]
-	(No symbol) [0x00007FF6B35129CF]
-	(No symbol) [0x00007FF6B353BE6A]
-	(No symbol) [0x00007FF6B35122E6]
-	(No symbol) [0x00007FF6B353C080]
-	(No symbol) [0x00007FF6B3554D02]
-	(No symbol) [0x00007FF6B353BC43]
-	(No symbol) [0x00007FF6B3510941]
-	(No symbol) [0x00007FF6B3511B84]
-	GetHandleVerifier [0x00007FF6B3A07F52+3524194]
-	GetHandleVerifier [0x00007FF6B3A5D800+3874576]
-	GetHandleVerifier [0x00007FF6B3A55D7F+3843215]
-	GetHandleVerifier [0x00007FF6B3755086+694166]
-	(No symbol) [0x00007FF6B3630A88]
-	(No symbol) [0x00007FF6B362CA94]
-	(No symbol) [0x00007FF6B362CBC2]
-	(No symbol) [0x00007FF6B361CC83]
-	BaseThreadInitThunk [0x00007FFF7379257D+29]
-	RtlUserThreadStart [0x00007FFF754AAA78+40]
+	GetHandleVerifier [0x00007FF6028F8EF2+54786]
+	(No symbol) [0x00007FF602865612]
+	(No symbol) [0x00007FF60271A64B]
+	(No symbol) [0x00007FF60271F116]
+	(No symbol) [0x00007FF6027214AA]
+	(No symbol) [0x00007FF602795394]
+	(No symbol) [0x00007FF60277BE6A]
+	(No symbol) [0x00007FF602794D02]
+	(No symbol) [0x00007FF60277BC43]
+	(No symbol) [0x00007FF602750941]
+	(No symbol) [0x00007FF602751B84]
+	GetHandleVerifier [0x00007FF602C47F52+3524194]
+	GetHandleVerifier [0x00007FF602C9D800+3874576]
+	GetHandleVerifier [0x00007FF602C95D7F+3843215]
+	GetHandleVerifier [0x00007FF602995086+694166]
+	(No symbol) [0x00007FF602870A88]
+	(No symbol) [0x00007FF60286CA94]
+	(No symbol) [0x00007FF60286CBC2]
+	(No symbol) [0x00007FF60285CC83]
+	BaseThreadInitThunk [0x00007FF8FFAA257D+29]
+	RtlUserThreadStart [0x00007FF9007AAA78+40]
+</msg>
+<status status="FAIL" starttime="20231015 17:29:33.192" endtime="20231015 17:29:33.456"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>xpath=//*[@id="fp-suggestions-carousel1-slide01"]/div/product-box/div[2]/div[3]/addto-cart-wrapper/div/a</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="NOT RUN" starttime="20231015 17:29:33.457" endtime="20231015 17:29:33.457"/>
+</kw>
+<kw name="Execute Javascript" library="SeleniumLibrary">
+<arg>arguments[0].click();</arg>
+<arg>xpath=//*[@id="fp-suggestions-carousel1-slide01"]/div/product-box/div[2]/div[3]/addto-cart-wrapper/div/a</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<status status="NOT RUN" starttime="20231015 17:29:33.458" endtime="20231015 17:29:33.458"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>2</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<status status="NOT RUN" starttime="20231015 17:29:33.459" endtime="20231015 17:29:33.459"/>
+</kw>
+<kw name="Execute Javascript" library="SeleniumLibrary">
+<arg>arguments[0].scrollIntoView(true);</arg>
+<arg>xpath=//*[@id="fp-suggestions-carousel1-slide01"]/div/product-box/div[2]/div[3]/addto-cart-wrapper/div/a</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<status status="NOT RUN" starttime="20231015 17:29:33.459" endtime="20231015 17:29:33.459"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>xpath=//*[@id="fp-suggestions-carousel1-slide01"]/div/product-box/div[2]/div[3]/addto-cart-wrapper/div/a</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="NOT RUN" starttime="20231015 17:29:33.460" endtime="20231015 17:29:33.460"/>
+</kw>
+<kw name="Execute Javascript" library="SeleniumLibrary">
+<arg>arguments[0].click();</arg>
+<arg>xpath=//*[@id="fp-suggestions-carousel1-slide01"]/div/product-box/div[2]/div[3]/addto-cart-wrapper/div/a</arg>
+<doc>Executes the given JavaScript code with possible arguments.</doc>
+<status status="NOT RUN" starttime="20231015 17:29:33.460" endtime="20231015 17:29:33.460"/>
+</kw>
+<status status="FAIL" starttime="20231015 17:29:27.622" endtime="20231015 17:29:33.461">JavascriptException: Message: javascript error: Unexpected token '}'
+  (Session info: chrome=118.0.5993.71)
+Stacktrace:
+	GetHandleVerifier [0x00007FF6028F8EF2+54786]
+	(No symbol) [0x00007FF602865612]
+	(No symbol) [0x00007FF60271A64B]
+	(No symbol) [0x00007FF60271F116]
+	(No symbol) [0x00007FF6027214AA]
+	(No symbol) [0x00007FF602795394]
+	(No symbol) [0x00007FF60277BE6A]
+	(No symbol) [0x00007FF602794D02]
+	(No symbol) [0x00007FF60277BC43]
+	(No symbol) [0x00007FF602750941]
+	(No symbol) [0x00007FF602751B84]
+	GetHandleVerifier [0x00007FF602C47F52+3524194]
+	GetHandleVerifier [0x00007FF602C9D800+3874576]
+	GetHandleVerifier [0x00007FF602C95D7F+3843215]
+	GetHandleVerifier [0x00007FF602995086+694166]
+	(No symbol) [0x00007FF602870A88]
+	(No symbol) [0x00007FF60286CA94]
+	(No symbol) [0x00007FF60286CBC2]
+	(No symbol) [0x00007FF60285CC83]
+	BaseThreadInitThunk [0x00007FF8FFAA257D+29]
+	RtlUserThreadStart [0x00007FF9007AAA78+40]
 </status>
 </test>
-<status status="FAIL" starttime="20231015 15:32:54.825" endtime="20231015 15:33:00.389"/>
+<status status="FAIL" starttime="20231015 17:29:27.455" endtime="20231015 17:29:33.462"/>
 </suite>
 <statistics>
 <total>
@@ -229,5 +127,23 @@ Stacktrace:
 </suite>
 </statistics>
 <errors>
+<msg timestamp="20231015 17:29:27.618" level="ERROR">Error in file 'd:\gitHubq\2023_Software_testing\softwareTestingGroup4\group4.robot' on line 18: Importing library 'Builtin' failed: ModuleNotFoundError: No module named 'Builtin'
+Traceback (most recent call last):
+  None
+PYTHONPATH:
+  c:\Users\luong\.vscode\extensions\robocorp.robotframework-lsp-1.11.0\src\robotframework_debug_adapter
+  D:\gitHubq\2023_Software_testing\softwareTestingGroup4
+  c:\Users\luong\.vscode\extensions\robocorp.robotframework-lsp-1.11.0\src
+  c:\Users\luong\.vscode\extensions\robocorp.robotframework-lsp-1.11.0\src\robotframework_ls\vendored
+  C:\Python311\python311.zip
+  C:\Python311\DLLs
+  C:\Python311\Lib
+  C:\Python311
+  C:\Users\luong\AppData\Roaming\Python\Python311\site-packages
+  C:\Users\luong\AppData\Roaming\Python\Python311\site-packages\win32
+  C:\Users\luong\AppData\Roaming\Python\Python311\site-packages\win32\lib
+  C:\Users\luong\AppData\Roaming\Python\Python311\site-packages\Pythonwin
+  C:\Python311\Lib\site-packages
+  C:\Python311\Lib\site-packages\vboxapi-1.0-py3.11.egg</msg>
 </errors>
 </robot>
